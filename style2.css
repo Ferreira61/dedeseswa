@@ -1,0 +1,204 @@
+/* Reset básico */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Corpo e container principal */
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(145deg, #1e1e2f, #2c2c47);
+    color: #f1f1f1;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 30px 15px;
+  }
+  
+  .container {
+    max-width: 800px;
+    width: 100%;
+    background-color: #2f2f48;
+    border-radius: 15px;
+    padding: 30px 40px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.5);
+    text-align: center;
+  }
+  
+  /* Títulos */
+  h1 {
+    color: #f39c12;
+    margin-bottom: 10px;
+  }
+  
+  h2 {
+    color: #f1c40f;
+    margin-bottom: 15px;
+  }
+  
+  h3 {
+    color: #ccc;
+    font-weight: 400;
+    margin-bottom: 25px;
+  }
+  
+  /* Contador */
+  #countdown {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #e74c3c;
+    margin-bottom: 25px;
+    animation: pulse 1.2s infinite alternate;
+  }
+  
+  @keyframes pulse {
+    from {opacity: 1;}
+    to {opacity: 0.6;}
+  }
+  
+  /* Imagem QR */
+  .image-slot {
+    margin-bottom: 20px;
+  }
+  
+  .image-slot img {
+    width: 200px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 12px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.7);
+  }
+  
+  /* Botão copiar link */
+  .copy-button {
+    background-color: #3498db; /* azul padrão */
+    color: #fff;
+    font-size: 1.1rem;
+    padding: 14px 28px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.15s ease;
+    user-select: none;
+    margin-bottom: 15px;
+    display: inline-block;
+  }
+  
+  .copy-button:hover,
+  .copy-button:active {
+    background-color: #27ae60; /* verde ao hover/click */
+    transform: scale(1.05);
+  }
+  
+  /* Notificação */
+  .notification {
+    display: none;
+    opacity: 0;
+    background-color: #2ecc71;
+    color: #fff;
+    font-weight: 700;
+    padding: 12px 20px;
+    border-radius: 8px;
+    margin: 10px auto 25px auto;
+    max-width: 300px;
+    box-shadow: 0 4px 10px rgba(46, 204, 113, 0.7);
+    transition: opacity 0.5s ease;
+  }
+  
+  .notification.show {
+    display: block;
+    opacity: 1;
+  }
+  
+  /* Mensagem extra */
+  .timer-msg {
+    color: #ccc;
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+  }
+  
+  /* Lista de cursos */
+  .extra-courses {
+    margin-top: 30px;
+    text-align: left;
+    color: #eee;
+  }
+  
+  .extra-courses h2 {
+    margin-bottom: 20px;
+  }
+  
+  .course-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  .course-item {
+    background-color: #3d3d5c;
+    padding: 20px;
+    border-radius: 12px;
+    width: 240px;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+    cursor: default;
+  }
+  
+  .course-item:hover {
+    transform: translateY(-6px);
+  }
+  
+  .course-item h3 {
+    margin-bottom: 10px;
+    font-weight: 700;
+    font-size: 1.1rem;
+  }
+  
+  .course-item p {
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+    color: #ddd;
+  }
+  
+  /* Botões em cursos */
+  .pay-button {
+    background-color: #27ae60;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 24px;
+    font-size: 1rem;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    user-select: none;
+  }
+  
+  .pay-button:hover {
+    background-color: #2ecc71;
+  }
+  
+  /* Responsivo */
+  @media (max-width: 650px) {
+    .container {
+      padding: 20px 25px;
+    }
+  
+    .course-list {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .course-item {
+      width: 100%;
+      max-width: 350px;
+    }
+  
+    #countdown {
+      font-size: 1.6rem;
+    }
+  }
+  
