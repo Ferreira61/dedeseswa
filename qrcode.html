@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Pagamento via QR Code</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Pagamento com Desconto</h1>
+    <p>Use o QR Code abaixo para realizar o pagamento enquanto a oferta durar!</p>
+    <div id="countdown">00:10:00</div>
+
+    <div class="image-slot">
+        <img src="qrcode.jpg" alt="QR Code de Pagamento" style="width: 200px; height: auto; display: block; margin: 0 auto;">
+
+
+    </div>
+
+    <p class="timer-msg">Essa oferta especial irá expirar em breve!</p>
+
+    <div class="extra-courses">
+      <h2>💥 Outros assuntos que podem te interessar::</h2>
+      <div class="course-list">
+        <div class="course-item">
+            <h3>💵 Aprenda sobre NF</h3>
+            <p>Compra, venda, etc...!</p>
+          <button onclick="window.location.href='pagamento_bolo.html'" class="pay-button">Saiba mais</button>
+        </div>
+
+        <div class="course-item">
+            <h3>📲 Faça tudo pelo seu celular...</h3>
+            <p>Se você não tem um computador e acha que não consegue começar, esse é pra você.</p>
+          <button onclick="window.location.href='pagamento_oficina.html'" class="pay-button">Saiba mais</button>
+        </div>
+
+        <div class="course-item">
+            <h3>💳 Tudo sobre CC</h3>
+            <p>Aprenda a usar da forma certa e viva disso.</p>
+          <button onclick="window.location.href='pagamento_informatica.html'" class="pay-button">Saiba mais</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
