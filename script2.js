@@ -23,7 +23,7 @@ function startCountdown(duration, display) {
   
     const copyBtn = document.getElementById('copy-btn');
     const notification = document.getElementById('notification');
-    const paymentLink = "https://seulinkdepagamento.com/pague-agora"; // seu link de pagamento real aqui
+    const paymentLink = "00020126580014BR.GOV.BCB.PIX013602082fe8-8c36-4c7b-a946-47ddb039fbfa52040000530398654041.005802BR5925Carlos Eduardo Pinheiro d6009SAO PAULO62140510iC2dXdQp4v6304C664"; // seu link de pagamento real aqui
   
     copyBtn.addEventListener('click', () => {
       navigator.clipboard.writeText(paymentLink).then(() => {
