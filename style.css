@@ -9,7 +9,7 @@ body {
     align-items: center;
     min-height: 100vh;
   }
-
+  
   .container {
     background: #2f2f48;
     border-radius: 16px;
@@ -20,19 +20,23 @@ body {
     text-align: center;
     animation: fadeIn 1.2s ease-in-out;
   }
-
+  
   h1 {
     color: #f39c12;
     font-size: 2.5rem;
     margin-bottom: 10px;
   }
-
+  
   h2 {
     color: #f1c40f;
     margin-top: 30px;
     margin-bottom: 15px;
   }
-
+  
+  h3 {
+    color: #ccc;
+  }
+  
   #countdown {
     font-size: 2.5rem;
     color: #e74c3c;
@@ -40,13 +44,31 @@ body {
     font-weight: bold;
     animation: pulse 1s infinite;
   }
-
+  
   .timer-msg {
     font-size: 1.2rem;
     color: #ccc;
     margin-bottom: 10px;
   }
-
+  
+  .main-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    margin: 20px 0;
+    display: block;
+  }
+  
+  .small-image {
+    max-width: 140px;
+    width: 100%;
+    height: auto;
+    margin: 10px auto;
+    display: block;
+    border-radius: 10px;
+    box-shadow: 0 0 12px rgba(255, 255, 255, 0.1);
+  }
+  
   .course-details ul {
     list-style-type: none;
     padding: 0;
@@ -54,7 +76,7 @@ body {
     margin: 0 auto 20px;
     max-width: 600px;
   }
-
+  
   .course-details li {
     background-color: #3b3b5c;
     margin: 10px 0;
@@ -63,27 +85,19 @@ body {
     font-size: 1rem;
     transition: transform 0.2s ease-in-out;
   }
-
+  
   .course-details li:hover {
     transform: scale(1.02);
     background-color: #464675;
   }
-
+  
   .image-slot {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 15px;
     margin: 30px 0;
   }
-
-  .image-slot img {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-    border: 2px solid #444;
-    box-shadow: 0 0 12px rgba(255, 255, 255, 0.1);
-  }
-
+  
   .pay-button {
     background-color: #27ae60;
     color: white;
@@ -96,17 +110,17 @@ body {
     margin: 20px auto;
     display: inline-block;
   }
-
+  
   .pay-button:hover {
     background-color: #2ecc71;
     transform: scale(1.05);
   }
-
+  
   .extra-courses {
     margin-top: 40px;
     text-align: center;
   }
-
+  
   .course-list {
     display: flex;
     flex-wrap: wrap;
@@ -114,7 +128,7 @@ body {
     justify-content: center;
     margin-top: 20px;
   }
-
+  
   .course-item {
     background-color: #3d3d5c;
     border-radius: 12px;
@@ -124,53 +138,85 @@ body {
     box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease-in-out;
   }
-
+  
   .course-item:hover {
     transform: translateY(-5px);
     background-color: #4e4e75;
   }
-
+  
   .course-item h3 {
     color: #f39c12;
     margin-bottom: 10px;
   }
-
+  
   .course-item p {
     color: #ddd;
     font-size: 0.95rem;
     margin-bottom: 15px;
   }
-
+  
   @keyframes fadeIn {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
   }
-
+  
   @keyframes pulse {
     0% { transform: scale(1); opacity: 1; }
     50% { transform: scale(1.1); opacity: 0.8; }
     100% { transform: scale(1); opacity: 1; }
   }
-
-  /* Media Queries para responsividade */
+  
+  /* Responsividade para celular */
   @media (max-width: 600px) {
     h1 {
-      font-size: 1.8rem;
+      font-size: 1.6rem;
     }
-
-    #countdown { 
-      font-size: 1.8rem;
+  
+    h2 {
+      font-size: 1.2rem;
     }
-
+  
+    h3 {
+      font-size: 1rem;
+    }
+  
     .container {
-      padding: 20px;
+      padding: 20px 15px;
     }
-
+  
+    .course-details ul {
+      padding-left: 10px;
+    }
+  
+    .pay-button {
+      font-size: 1rem;
+      padding: 12px 20px;
+    }
+  
+    .extra-courses h2 {
+      font-size: 1.1rem;
+    }
+  
+    .image-slot {
+      gap: 10px;
+      margin: 20px 0;
+    }
+  
+    .image-slot img {
+      max-width: 100%;
+      height: auto;
+    }
+  
     .course-item {
       width: 100%;
     }
-
-    .image-slot {
-      grid-template-columns: 1fr;
+  
+    #countdown {
+      font-size: 1.8rem;
+    }
+  
+    .timer-msg {
+      font-size: 1rem;
     }
   }
+  
