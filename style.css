@@ -1,222 +1,374 @@
+/* style.css */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(145deg, #1e1e2f, #2c2c47);
-    color: #f1f1f1;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-  }
-  
-  .container {
-    background: #2f2f48;
-    border-radius: 16px;
-    padding: 40px;
-    max-width: 800px;
-    width: 90%;
-    box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
-    text-align: center;
-    animation: fadeIn 1.2s ease-in-out;
-  }
-  
-  h1 {
-    color: #f39c12;
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-  }
-  
-  h2 {
-    color: #f1c40f;
-    margin-top: 30px;
-    margin-bottom: 15px;
-  }
-  
-  h3 {
-    color: #ccc;
-  }
-  
-  #countdown {
-    font-size: 2.5rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(145deg, #1e1e2f, #2c2c47);
+  color: #f1f1f1;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  background: #2f2f48;
+  border-radius: 16px;
+  padding: 40px;
+  max-width: 900px;
+  width: 90%;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
+  text-align: center;
+  animation: fadeIn 1.2s ease-in-out;
+}
+
+h1 {
+  color: #f39c12;
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+h2 {
+  color: #f1c40f;
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+
+h3 {
+  color: #ccc;
+}
+
+#countdown {
+  font-size: 2.5rem;
+  color: #e74c3c;
+  margin: 20px 0;
+  font-weight: bold;
+  animation: pulse 1s infinite;
+}
+
+.timer-msg {
+  font-size: 1.2rem;
+  color: #ccc;
+  margin-bottom: 10px;
+}
+
+.main-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  margin: 20px 0;
+  display: block;
+}
+
+.small-image {
+  max-width: 140px;
+  width: 100%;
+  height: auto;
+  margin: 10px auto;
+  display: block;
+  border-radius: 10px;
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.1);
+}
+
+.course-details ul {
+  list-style-type: none;
+  padding: 0;
+  text-align: left;
+  margin: 0 auto 20px;
+  max-width: 600px;
+}
+
+.course-details li {
+  background-color: #3b3b5c;
+  margin: 10px 0;
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: transform 0.2s ease-in-out;
+}
+
+.course-details li:hover {
+  transform: scale(1.02);
+  background-color: #464675;
+}
+
+.image-slot {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+  margin: 30px 0;
+}
+
+/* Botões animados verdes (igual cor do carrinho) */
+.add-to-cart {
+  background-color: #27ae60;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s ease-in-out;
+  box-shadow: 0 4px 8px rgba(39, 174, 96, 0.4);
+}
+
+.add-to-cart:hover {
+  background-color: #2ecc71;
+  transform: scale(1.05);
+  box-shadow: 0 6px 14px rgba(46, 204, 113, 0.6);
+}
+
+.add-to-cart:active {
+  transform: scale(0.95);
+}
+
+.pay-button {
+  background-color: #27ae60;
+  color: white;
+  padding: 14px 28px;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s ease-in-out;
+  margin: 20px auto;
+  display: inline-block;
+}
+
+.pay-button:hover {
+  background-color: #2ecc71;
+  transform: scale(1.05);
+}
+
+/* Novo botão de compra após o que a pessoa vai aprender, com estilo igual ao pay-button */
+.buy-now-button {
+  background-color: #27ae60;
+  color: white;
+  padding: 14px 28px;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s ease-in-out;
+  margin: 20px auto 40px auto;
+  display: inline-block;
+  text-decoration: none;
+  box-shadow: 0 4px 8px rgba(39, 174, 96, 0.4);
+  user-select: none;
+}
+
+.buy-now-button:hover {
+  background-color: #2ecc71;
+  transform: scale(1.05);
+}
+
+/* Extra courses section */
+.extra-courses {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.course-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.course-item {
+  background-color: #3d3d5c;
+  border-radius: 12px;
+  padding: 20px;
+  width: 240px;
+  text-align: center;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease-in-out;
+}
+
+.course-item:hover {
+  transform: translateY(-5px);
+  background-color: #4e4e75;
+}
+
+.course-item h3 {
+  color: #f39c12;
+  margin-bottom: 10px;
+}
+
+.course-item p {
+  color: #ddd;
+  font-size: 0.95rem;
+  margin-bottom: 15px;
+}
+
+.course-item .price {
+  font-weight: bold;
+  color: #2ecc71;
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+/* Estilo do Carrinho */
+#cart-button {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background-color: #27ae60;
+  color: white;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  font-weight: bold;
+  font-size: 1.8rem;
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(39, 174, 96, 0.7);
+  user-select: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  will-change: transform;
+}
+
+#cart-button:hover {
+  background-color: #2ecc71;
+}
+
+#cart-button.bump {
+  animation: bump 0.3s ease forwards;
+}
+
+#cart-count {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background-color: #e74c3c;
+  border-radius: 50%;
+  padding: 4px 8px;
+  font-size: 0.85rem;
+  color: white;
+  font-weight: bold;
+  pointer-events: none;
+  user-select: none;
+  min-width: 20px;
+  text-align: center;
+}
+
+/* Container do carrinho */
+#cart-container {
+  position: fixed;
+  bottom: 95px;
+  right: 25px;
+  background-color: #39395a;
+  padding: 20px;
+  border-radius: 12px;
+  width: 320px;
+  max-height: 400px;
+  overflow-y: auto;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+  z-index: 999;
+  text-align: left;
+  display: none; /* inicialmente escondido */
+  flex-direction: column;
+}
+
+#cart-container h3 {
+  color: #f1c40f;
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+}
+
+#cart-items {
+  list-style-type: none;
+  padding-left: 0;
+  margin-bottom: 10px;
+  max-height: 280px;
+  overflow-y: auto;
+}
+
+#cart-items li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #4a4a6a;
+  padding: 10px 15px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  font-size: 1rem;
+  gap: 10px;
+}
+
+#cart-items li span {
+  flex-grow: 1;
+}
+
+.remove-btn {
+  background-color: #e74c3c;
+  border: none;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.2s;
+  flex-shrink: 0;
+}
+
+.remove-btn:hover {
+  background-color: #c0392b;
+}
+
+#cart-total {
+  font-weight: bold;
+  font-size: 1.2rem;
+  text-align: right;
+  color: #2ecc71;
+  margin-top: 10px;
+}
+
+/* Notificação flutuante */
+#notification {
+  position: fixed;
+  bottom: 95px;
+  right: 95px;
+  background-color: #27ae60;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(39, 174, 96, 0.7);
+  font-weight: bold;
+  user-select: none;
+  opacity: 0;
+  z-index: 1100;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+
+/* Animações */
+@keyframes pulse {
+  0%, 100% {
     color: #e74c3c;
-    margin: 20px 0;
-    font-weight: bold;
-    animation: pulse 1s infinite;
   }
-  
-  .timer-msg {
-    font-size: 1.2rem;
-    color: #ccc;
-    margin-bottom: 10px;
-  }
-  
-  .main-image {
-    max-width: 100%;
-    height: auto;
-    border-radius: 12px;
-    margin: 20px 0;
-    display: block;
-  }
-  
-  .small-image {
-    max-width: 140px;
-    width: 100%;
-    height: auto;
-    margin: 10px auto;
-    display: block;
-    border-radius: 10px;
-    box-shadow: 0 0 12px rgba(255, 255, 255, 0.1);
-  }
-  
-  .course-details ul {
-    list-style-type: none;
-    padding: 0;
-    text-align: left;
-    margin: 0 auto 20px;
-    max-width: 600px;
-  }
-  
-  .course-details li {
-    background-color: #3b3b5c;
-    margin: 10px 0;
-    padding: 12px;
-    border-radius: 10px;
-    font-size: 1rem;
-    transition: transform 0.2s ease-in-out;
-  }
-  
-  .course-details li:hover {
-    transform: scale(1.02);
-    background-color: #464675;
-  }
-  
-  .image-slot {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 15px;
-    margin: 30px 0;
-  }
-  
-  .pay-button {
-    background-color: #27ae60;
-    color: white;
-    padding: 14px 28px;
-    border: none;
-    border-radius: 10px;
-    font-size: 1.1rem;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s ease-in-out;
-    margin: 20px auto;
-    display: inline-block;
-  }
-  
-  .pay-button:hover {
-    background-color: #2ecc71;
-    transform: scale(1.05);
-  }
-  
-  .extra-courses {
-    margin-top: 40px;
-    text-align: center;
-  }
-  
-  .course-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-    margin-top: 20px;
-  }
-  
-  .course-item {
-    background-color: #3d3d5c;
-    border-radius: 12px;
-    padding: 20px;
-    width: 240px;
-    text-align: center;
-    box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease-in-out;
-  }
-  
-  .course-item:hover {
-    transform: translateY(-5px);
-    background-color: #4e4e75;
-  }
-  
-  .course-item h3 {
+  50% {
     color: #f39c12;
-    margin-bottom: 10px;
   }
-  
-  .course-item p {
-    color: #ddd;
-    font-size: 0.95rem;
-    margin-bottom: 15px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+
+@keyframes bump {
+  0% {
+    transform: scale(1);
   }
-  
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+  50% {
+    transform: scale(1.2);
   }
-  
-  @keyframes pulse {
-    0% { transform: scale(1); opacity: 1; }
-    50% { transform: scale(1.1); opacity: 0.8; }
-    100% { transform: scale(1); opacity: 1; }
+  100% {
+    transform: scale(1);
   }
-  
-  /* Responsividade para celular */
-  @media (max-width: 600px) {
-    h1 {
-      font-size: 1.6rem;
-    }
-  
-    h2 {
-      font-size: 1.2rem;
-    }
-  
-    h3 {
-      font-size: 1rem;
-    }
-  
-    .container {
-      padding: 20px 15px;
-    }
-  
-    .course-details ul {
-      padding-left: 10px;
-    }
-  
-    .pay-button {
-      font-size: 1rem;
-      padding: 12px 20px;
-    }
-  
-    .extra-courses h2 {
-      font-size: 1.1rem;
-    }
-  
-    .image-slot {
-      gap: 10px;
-      margin: 20px 0;
-    }
-  
-    .image-slot img {
-      max-width: 100%;
-      height: auto;
-    }
-  
-    .course-item {
-      width: 100%;
-    }
-  
-    #countdown {
-      font-size: 1.8rem;
-    }
-  
-    .timer-msg {
-      font-size: 1rem;
-    }
-  }
-  
+}

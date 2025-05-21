@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Página de Pagamento - Oferta Especial</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="container">
@@ -15,7 +15,7 @@
 
     <h1>Sabemos o porque você está aqui...</h1>
     <h3>Não aguenta mais sua rotina chata e cansativa, sem liberdade sendo refém do sistema?<br> Até quando sua vida vai continuar a mesma?</h3>
-    
+
     <div class="course-details">
       <h2>O caminho está aqui! 🔥<br>Comece hoje mesmo!</h2>
       <ul>
@@ -26,39 +26,58 @@
         <li>✅ Prática com bicos Reais</li>
         <li>✅ E muito mais...</li>
       </ul>
+
+      <!-- Botão de compra adicionado aqui -->
+      <a href="qrcode.html" class="add-to-cart" style="display: inline-block; margin-top: 15px;">
+        Comprar Agora
+      </a>
     </div>
-
-    <div id="countdown">00:10:00</div>
-
-    <div class="images image-slot">
-      <img src="foto2.jpg" alt="img" class="small-image">
-    </div>
-
-    <button onclick="window.location.href='qrcode.html'" class="pay-button">✅ QUERO COMEÇAR AGORA 💵</button>
 
     <div class="extra-courses">
       <h2>💥 Outros assuntos que podem te interessar:</h2>
       <div class="course-list">
-        <div class="course-item">
+        <div class="course-item" data-price="10" data-name="Aprenda sobre NF">
           <h3>💵 Aprenda sobre NF</h3>
           <p>Compra, venda, etc...!</p>
-          <button onclick="window.location.href='pagamento_bolo.html'" class="pay-button">Saiba mais</button>
+          <div class="price">R$ 10,00</div>
+          <button class="add-to-cart">Adicionar ao carrinho</button>
         </div>
 
-        <div class="course-item">
+        <div class="course-item" data-price="10" data-name="Faça tudo pelo seu celular">
           <h3>📲 Faça tudo pelo seu celular...</h3>
           <p>Se você não tem um computador e acha que não consegue começar, esse é pra você.</p>
-          <button onclick="window.location.href='pagamento_oficina.html'" class="pay-button">Saiba mais</button>
+          <div class="price">R$ 10,00</div>
+          <button class="add-to-cart">Adicionar ao carrinho</button>
         </div>
 
-        <div class="course-item">
+        <div class="course-item" data-price="10" data-name="Tudo sobre CC">
           <h3>💳 Tudo sobre CC</h3>
           <p>Aprenda a usar da forma certa e viva disso.</p>
-          <button onclick="window.location.href='pagamento_informatica.html'" class="pay-button">Saiba mais</button>
+          <div class="price">R$ 10,00</div>
+          <button class="add-to-cart">Adicionar ao carrinho</button>
         </div>
       </div>
     </div>
   </div>
+
+  <button id="cart-button" aria-label="Carrinho de compras">
+    🛒
+    <span id="cart-count">1</span>
+  </button>
+
+  <div id="cart-container" aria-live="polite" aria-atomic="true">
+    <h3>Carrinho</h3>
+    <ul id="cart-items">
+      <li data-name="Oferta Especial por Tempo Limitado!" data-price="30">
+        <span>Oferta Especial por Tempo Limitado!</span>
+        <span>R$ 30,00</span>
+      </li>
+    </ul>
+    <div id="cart-total">Total: R$ 30,00</div>
+  </div>
+
+  <div id="notification" role="alert" aria-live="assertive"></div>
+
   <script src="script.js"></script>
 </body>
 </html>
