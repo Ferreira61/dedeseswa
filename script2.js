@@ -1,111 +1,106 @@
-// Função para o contador regressivo
-function startCountdown(duration, display) {
-  let timer = duration,
-    minutes,
-    seconds;
-  const countdownInterval = setInterval(function () {
-    minutes = Math.floor(timer / 60);
-    seconds = timer % 60;
-
-    minutes = minutes < 10 ? "0" + minutes : minutes;
-    seconds = seconds < 10 ? "0" + seconds : seconds;
-
-    display.textContent = minutes + ":" + seconds;
-
-    if (--timer < 0) {
-      clearInterval(countdownInterval);
-      display.textContent = "00:00";
-    }
-  }, 1000);
-}
-
 window.onload = function () {
-  // Contador
-  const tenMinutes = 60 * 10;
-  const display = document.getElementById("countdown");
-  startCountdown(tenMinutes, display);
+  const countdownElement = document.getElementById("countdown");
+  if (countdownElement) {
+    let timeLeft = 300;
+    const interval = setInterval(() => {
+      if (timeLeft <= 0) {
+        clearInterval(interval);
+        countdownElement.textContent = "Tempo esgotado!";
+      } else {
+        let minutes = Math.floor(timeLeft / 60);
+        let seconds = timeLeft % 60;
+        countdownElement.textContent = `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
+        timeLeft--;
+      }
+    }, 1000);
+  }
 
-  // Copiar link
-  const copyBtn = document.getElementById("copy-btn");
-  const notification = document.getElementById("notification");
-  const paymentLink =
-    "00020126580014BR.GOV.BCB.PIX013602082fe8-8c36-4c7b-a946-47ddb039fbfa52040000530398654041.005802BR5925Carlos Eduardo Pinheiro d6009SAO PAULO62140510iC2dXdQp4v6304C664"; // seu link real aqui
-
-  copyBtn.addEventListener("click", () => {
-    navigator.clipboard
-      .writeText(paymentLink)
-      .then(() => {
-        notification.classList.add("show");
-        setTimeout(() => {
-          notification.classList.remove("show");
-        }, 2500);
-      })
-      .catch((err) => {
-        alert("Erro ao copiar o link. Tente manualmente.");
-      });
-  });
-
-  // === CARRINHO ===
-
-  // Elementos do carrinho
   const cartButton = document.getElementById("cart-button");
   const cartCount = document.getElementById("cart-count");
   const cartList = document.getElementById("cart-list");
   const cartItemsUl = document.getElementById("cart-items");
   const cartTotal = document.getElementById("cart-total");
+  const paymentLink = document.getElementById("payment-link");
+  const copyLinkBtn = document.getElementById("copy-link-btn");
+  const notification = document.getElementById("copy-notification");
 
-  let cart = [];
+  const originalCourse = { name: "Curso Principal", price: 30.0, removable: false };
+  let cart = [originalCourse];
 
-  // Função para atualizar o carrinho na tela
-  function updateCart() {
-    // Atualiza contador no botão
-    cartCount.textContent = cart.length;
+  const paymentLinks = {
+    0: "00020126580014BR.GOV.BCB.PIX013602082fe8-8c36-4c7b-a946-47ddb039fbfa520400005303986540530.005802BR5925Carlos Eduardo Pinheiro d6009SAO PAULO62140510LWZtSG6417630425BE",
+    1: "00020126580014BR.GOV.BCB.PIX013602082fe8-8c36-4c7b-a946-47ddb039fbfa520400005303986540540.005802BR5925Carlos Eduardo Pinheiro d6009SAO PAULO62140510nEkmZMOOgc6304D3DA",
+    2: "00020126580014BR.GOV.BCB.PIX013602082fe8-8c36-4c7b-a946-47ddb039fbfa520400005303986540550.005802BR5925Carlos Eduardo Pinheiro d6009SAO PAULO62140510Vb2bMXyna263048075",
+    3: "00020126580014BR.GOV.BCB.PIX013602082fe8-8c36-4c7b-a946-47ddb039fbfa520400005303986540560.005802BR5925Carlos Eduardo Pinheiro d6009SAO PAULO62140510YmmdUZbjt56304DB18",
+  };
 
-    // Limpa lista
-    cartItemsUl.innerHTML = "";
-
-    // Preenche lista de itens
-    cart.forEach((item, index) => {
-      const li = document.createElement("li");
-      li.textContent = `${item.name} - R$${item.price.toFixed(2)}`;
-
-      // Botão remover
-      const removeBtn = document.createElement("button");
-      removeBtn.textContent = "❌";
-      removeBtn.title = "Remover do carrinho";
-      removeBtn.style.marginLeft = "10px";
-      removeBtn.style.cursor = "pointer";
-      removeBtn.style.background = "none";
-      removeBtn.style.border = "none";
-      removeBtn.style.color = "#e74c3c";
-      removeBtn.style.fontSize = "1.1rem";
-
-      removeBtn.addEventListener("click", () => {
-        cart.splice(index, 1);
-        updateCart();
-      });
-
-      li.appendChild(removeBtn);
-      cartItemsUl.appendChild(li);
-    });
-
-    // Atualiza total
-    const totalValue = cart.reduce((sum, item) => sum + item.price, 0);
-    cartTotal.textContent = `Total: R$${totalValue.toFixed(2)}`;
-
-    // Se vazio, esconde lista
-    if (cart.length === 0) {
-      cartList.classList.add("hidden");
-      cartCount.textContent = "0";
+  function showNotification() {
+    if (notification) {
+      notification.classList.add("show");
+      setTimeout(() => {
+        notification.classList.remove("show");
+      }, 2500);
     }
   }
 
-  // Mostrar/ocultar carrinho ao clicar no botão flutuante
-  cartButton.addEventListener("click", () => {
-    cartList.classList.toggle("hidden");
-  });
+  function updateCart() {
+    cartCount.textContent = cart.length;
 
-  // Adicionar itens ao carrinho - pega todos os botões com .add-to-cart
+    cartItemsUl.innerHTML = "";
+    cart.forEach((item, index) => {
+      const li = document.createElement("li");
+      li.className = "cart-item";
+
+      const itemName = document.createElement("span");
+      itemName.className = "item-name";
+      itemName.textContent = `${item.name} - R$${item.price.toFixed(2)}`;
+      li.appendChild(itemName);
+
+      if (item.removable !== false) {
+        const removeBtn = document.createElement("button");
+        removeBtn.className = "remove-btn";
+        removeBtn.textContent = "❌";
+        removeBtn.title = "Remover do carrinho";
+
+        removeBtn.addEventListener("click", () => {
+          cart.splice(index, 1);
+          updateCart();
+        });
+
+        li.appendChild(removeBtn);
+      }
+
+      cartItemsUl.appendChild(li);
+    });
+
+    const totalValue = cart.reduce((sum, item) => sum + item.price, 0);
+    cartTotal.textContent = `Total: R$${totalValue.toFixed(2)}`;
+
+    const adicionaisCount = cart.filter(item => item.removable !== false).length;
+    const countForLink = adicionaisCount > 3 ? 3 : adicionaisCount;
+    const urlPagamento = paymentLinks[countForLink] || paymentLinks[0];
+
+    if (paymentLink) {
+      paymentLink.href = urlPagamento;
+      paymentLink.textContent = `Pagar R$${(30 + adicionaisCount * 10).toFixed(2)} com QR Code`;
+    }
+
+    // Atualiza função do botão "Copiar link"
+    if (copyLinkBtn) {
+      copyLinkBtn.onclick = () => {
+        navigator.clipboard.writeText(urlPagamento)
+          .then(() => showNotification())
+          .catch(() => alert("Erro ao copiar a chave Pix."));
+      };
+    }
+  }
+
+  if (cartButton && cartList) {
+    cartButton.addEventListener("click", () => {
+      cartList.classList.toggle("show");
+    });
+  }
+
   const addButtons = document.querySelectorAll(".add-to-cart");
   addButtons.forEach((btn) => {
     btn.addEventListener("click", () => {
@@ -113,14 +108,18 @@ window.onload = function () {
       const name = courseItem.getAttribute("data-name");
       const price = parseFloat(courseItem.getAttribute("data-price"));
 
-      cart.push({ name, price });
+      const alreadyInCart = cart.some((item) => item.name === name);
+      if (alreadyInCart) {
+        alert(`"${name}" já está no carrinho!`);
+        return;
+      }
+
+      cart.push({ name, price, removable: true });
       updateCart();
 
-      // Mostrar notificação simples
       alert(`"${name}" adicionado ao carrinho!`);
     });
   });
 
-  // Inicializa carrinho
   updateCart();
 };
